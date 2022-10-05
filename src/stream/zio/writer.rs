@@ -221,7 +221,7 @@ where
             self.write_from_offset()?;
 
             if finished {
-                return Ok(());
+                return self.writer.flush();
             }
 
             let hint = self.with_buffer(|dst, op| op.flush(dst));
